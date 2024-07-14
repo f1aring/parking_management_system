@@ -51,7 +51,7 @@ const Dashboard: React.FC<DashboardProps> = ({ vehicles }) => {
   return (
     <div className="dashboard dashboard-background">
       <h2 className="dashboard-title">Dashboard</h2>
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '20px', textAlign: 'left' }}>
         <label className="date-picker">Date: </label>
         <DatePicker value={selectedDate} onChange={handleDateChange} />
       </div>
@@ -75,7 +75,7 @@ const Dashboard: React.FC<DashboardProps> = ({ vehicles }) => {
         <Card
           title="Total Empty Slots"
           className="card-background"
-          style={cardStyle}
+          style={{ ...cardStyle, width: 300 }}
         >
           <h3 className="card-content">{totalEmptySlots}</h3>
         </Card>

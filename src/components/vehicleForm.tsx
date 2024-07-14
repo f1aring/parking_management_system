@@ -173,7 +173,7 @@ const VehicleForm: React.FC<VehicleFormProps> = ({
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" className="button">
           Submit
         </Button>
       </Form.Item>

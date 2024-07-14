@@ -38,7 +38,7 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #aa5f5f;
 }
 
 .form {
@@ -48,6 +48,7 @@
   padding: 30px;
   border: #e0dada solid 2px;
   border-radius: 8px;
+  background-color: #385170;
 }
 
 .dashboard {
@@ -63,10 +64,13 @@
 }
 
 .navbar {
-  background: #001529;
+  width: 80vw;
+  margin-left: 9vw;
+  background: #142d4c;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 50px;
+  border-radius: 8px;
 }
 
 .navbar-title {
@@ -87,11 +91,22 @@
 .date-picker {
   color: #fff !important;
 }
+.date-picker {
+  margin-left: 30px;
+}
 
 .card-background {
   background-color: #9fd3c7 !important;
 }
 
 .dashboard-background {
-  background-color: #333 !important;
+  background-color: #385170 !important;
+}
+
+.ant-form-item-label > label {
+  color: #fff !important;
+}
+.button {
+  color: white;
+  background-color: #9fd3c7;
 }
