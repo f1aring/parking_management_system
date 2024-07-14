@@ -1,4 +1,4 @@
-#root {
+.root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -34,7 +34,7 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 2rem;
 }
 
 .read-the-docs {
@@ -60,4 +60,38 @@
 .first-portion {
   display: flex;
   gap: 20px;
+}
+
+.navbar {
+  background: #001529;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* New Styles */
+.dashboard-title,
+.card-title,
+.card-content,
+.date-picker {
+  color: #fff !important;
+}
+
+.card-background {
+  background-color: #9fd3c7 !important;
+}
+
+.dashboard-background {
+  background-color: #333 !important;
 }

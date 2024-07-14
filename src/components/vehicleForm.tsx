@@ -1,7 +1,7 @@
 import type { FormProps } from 'antd';
 import { Button, DatePicker, Form, Input, Select } from 'antd';
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
 
 export interface VehicleFormData {
@@ -18,6 +18,7 @@ export interface VehicleFormData {
 
 interface VehicleFormProps {
   onSubmit: (formData: VehicleFormData) => void;
+  currentVehicle?: VehicleFormData | null;
 }
 
 interface InternalFormFields {
@@ -34,8 +35,25 @@ interface InternalFormFields {
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const VehicleForm: React.FC<VehicleFormProps> = ({ onSubmit }) => {
+const VehicleForm: React.FC<VehicleFormProps> = ({
+  onSubmit,
+  currentVehicle,
+}) => {
   const [form] = Form.useForm();
+
+  useEffect(() => {
+    if (currentVehicle) {
+      form.setFieldsValue({
+        ...currentVehicle,
+        timeRange: [
+          moment(currentVehicle.entryTime),
+          moment(currentVehicle.exitTime),
+        ],
+      });
+    } else {
+      form.resetFields();
+    }
+  }, [currentVehicle, form]);
 
   const onFinish: FormProps<InternalFormFields>['onFinish'] = (values) => {
     const [entryTime, exitTime] = values.timeRange || [];

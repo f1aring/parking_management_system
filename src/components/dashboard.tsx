@@ -46,11 +46,13 @@ const Dashboard: React.FC<DashboardProps> = ({ vehicles }) => {
     }
   };
 
+  const cardStyle = { width: 240, backgroundColor: '#9fd3c7' };
+
   return (
-    <div className="dashboard">
-      <h2>Dashboard</h2>
+    <div className="dashboard dashboard-background">
+      <h2 className="dashboard-title">Dashboard</h2>
       <div style={{ marginBottom: '20px' }}>
-        <label>Date: </label>
+        <label className="date-picker">Date: </label>
         <DatePicker value={selectedDate} onChange={handleDateChange} />
       </div>
 
@@ -62,18 +64,34 @@ const Dashboard: React.FC<DashboardProps> = ({ vehicles }) => {
           justifyContent: 'center',
         }}
       >
-        <Card title="Total Cars Parked" style={{ width: 240 }}>
-          <h3>{totalCarsParked}</h3>
+        <Card
+          title="Total Cars Parked"
+          className="card-background"
+          style={cardStyle}
+        >
+          <h3 className="card-content">{totalCarsParked}</h3>
         </Card>
 
-        <Card title="Total Empty Slots" style={{ width: 300 }}>
-          <h3>{totalEmptySlots}</h3>
+        <Card
+          title="Total Empty Slots"
+          className="card-background"
+          style={cardStyle}
+        >
+          <h3 className="card-content">{totalEmptySlots}</h3>
         </Card>
 
-        <Card title="Vehicle Types" style={{ width: 240 }}>
+        <Card
+          title="Vehicle Types"
+          className="card-background"
+          style={cardStyle}
+        >
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {Object.keys(vehicleTypeCount).map((type) => (
-              <li key={type} style={{ marginBottom: '5px' }}>
+              <li
+                key={type}
+                className="card-content"
+                style={{ marginBottom: '5px' }}
+              >
                 {type}: {vehicleTypeCount[type]}
               </li>
             ))}
@@ -82,11 +100,16 @@ const Dashboard: React.FC<DashboardProps> = ({ vehicles }) => {
 
         <Card
           title="Vehicles Parked for More Than Two Hours"
-          style={{ width: 300 }}
+          className="card-background"
+          style={{ ...cardStyle, width: 300 }}
         >
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {longParkedVehicles.map((vehicle, index) => (
-              <li key={index} style={{ marginBottom: '5px' }}>
+              <li
+                key={index}
+                className="card-content"
+                style={{ marginBottom: '5px' }}
+              >
                 {vehicle.licenseNumber} - {vehicle.ownerName}
               </li>
             ))}

@@ -5,9 +5,10 @@ import { VehicleFormData } from './vehicleForm';
 
 interface DataTableProps {
   vehicles: VehicleFormData[];
+  onEdit: (vehicle: VehicleFormData) => void;
 }
 
-const DataTable: React.FC<DataTableProps> = ({ vehicles }) => {
+const DataTable: React.FC<DataTableProps> = ({ vehicles, onEdit }) => {
   const columns: ColumnsType<VehicleFormData> = [
     {
       title: 'License Number',
@@ -61,9 +62,9 @@ const DataTable: React.FC<DataTableProps> = ({ vehicles }) => {
     {
       title: 'Action',
       key: 'action',
-      render: (_) => (
+      render: (_, record) => (
         <Space size="middle">
-          <a>Edit</a>
+          <a onClick={() => onEdit(record)}>Edit</a>
         </Space>
       ),
     },
